@@ -28,6 +28,11 @@ table,th,tr,td{
     background-color:aliceblue;
     font-size: small;
 }
-footer{
-    background-image: url('Nanatsu-1.jpg');
+
+#CC_Total{
+    font-size: medium;
+    border: 2px solid black;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
 }

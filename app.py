@@ -2,7 +2,6 @@
 import os
 import sqlite3
 from bottle import route,run,TEMPLATE_PATH, jinja2_view, static_file, request,redirect
-
 from modelo_datos import BASE_DATOS
 
 TEMPLATE_PATH.append(os.path.join(os.path.dirname(__file__), 'templates'))
@@ -24,9 +23,14 @@ def hola():
     consulta = 'SELECT id, nombre, subnombre, raza, elemento, cc, ataque, defensa, vida, equip_1, equip_2, festival, habilidad_1, habilidad_2, ultimate, caracteristicas, gracia, reliquia from personajes'
     cursor=cnx.execute(consulta)
     filas = cursor.fetchall()
+
+
+    consulta ='SELECT SUM(CC) as CC_Total from personajes'
+    cursor=cnx.execute(consulta)
+    total = cursor.fetchone()
     cnx.close()
 
-    return{'datos': filas}
+    return{'datos': filas, 'total':total}
 
 @route('/editar')
 @route('/editar/<id:int>')
