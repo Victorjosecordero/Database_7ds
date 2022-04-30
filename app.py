@@ -16,7 +16,7 @@ def home():
     return {}
 
 
-@route('/personajes')
+@route('/personajes7ds')
 @jinja2_view('personajes.html')
 def hola():
     cnx= sqlite3.connect(BASE_DATOS)
